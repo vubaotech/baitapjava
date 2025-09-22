@@ -33,7 +33,7 @@ public class RegisterController extends HttpServlet {
 				}
 			}
 		}
-		req.getRequestDispatcher(Constant.Path.REGISTER).forward(req, resp);
+		req.getRequestDispatcher("/views/login.jsp").forward(req, resp);
 	}
 
 	@SuppressWarnings("static-access")
@@ -51,13 +51,13 @@ public class RegisterController extends HttpServlet {
 		if (service.checkExistEmail(email)) {
 			alertMsg = "Email đã tồn tại!";
 			req.setAttribute("alert", alertMsg);
-			req.getRequestDispatcher(Constant.Path.REGISTER).forward(req, resp);
+			req.getRequestDispatcher("/views/login.jsp").forward(req, resp);
 			return;
 		}
 		if (service.checkExistUsername(username)) {
 			alertMsg = "Tài khoản đã tồn tại!";
 			req.setAttribute("alert", alertMsg);
-			req.getRequestDispatcher(Constant.Path.REGISTER).forward(req, resp);
+			req.getRequestDispatcher("/views/login.jsp").forward(req, resp);
 			return;
 		}
 
@@ -68,7 +68,7 @@ public class RegisterController extends HttpServlet {
 		} else {
 			alertMsg = "System error!";
 			req.setAttribute("alert", alertMsg);
-			req.getRequestDispatcher(Constant.Path.REGISTER).forward(req, resp);
+			req.getRequestDispatcher("/views/login.jsp").forward(req, resp);
 		}
 	}
 }
