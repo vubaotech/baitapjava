@@ -4,12 +4,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class DBConnect {
-	private final String serverName = "DESKTOP-8VCMSM0";
-	private final String dbName = "devwebz";
+	private final String serverName = "DESKTOP-8VCMSM0\\SQLSERVER";
+	private final String dbName = "WebAppz";
 	private final String portNumber = "1433";
 	private final String instance = "";
-	private final String password = "123456";
-	private final String userID = "sa";
+	private final String password = "12345678";
+	private final String userID = "vb";
 	
 	public Connection getConnection() throws Exception {
 		String url = "jdbc:sqlserver://" + serverName + ":" + portNumber + "\\" + instance + ";encrypt=true; trustServerCertificate=true;databaseName=" + dbName;
