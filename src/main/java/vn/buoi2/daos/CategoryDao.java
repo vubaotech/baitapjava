@@ -1,7 +1,8 @@
 package vn.buoi2.daos;
 
 import java.util.List;
-import java.util.Locale.Category;
+
+import vn.buoi2.models.Category;
 
 public interface CategoryDao {
 	 void insert(Category category);

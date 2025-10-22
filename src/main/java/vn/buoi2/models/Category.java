@@ -24,6 +24,12 @@ public class Category {
 		this.icon = icon;
 	}
 	
+	
+	
+	public Category() {
+		super();
+	}
+	
 	public Category(int cateid, String catename, String icon) {
 		super();
 		this.cateid = cateid;

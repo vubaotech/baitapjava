@@ -61,7 +61,7 @@
 			<label class="input login-input">
 				<div class="input-group">
 					<span class="input-group-addon"><i class="fa fa-user"></i></span> <input
-						type="text" placeholder="Nhập mật khẩu" name="passWord"
+						type="text" placeholder="Nhập mật khẩu" name="confirmPassWord"
 						class="form-control">
 				</div>
 			</label>

@@ -5,10 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale.Category;
 
 import vn.buoi2.configs.DBConnect;
 import vn.buoi2.daos.CategoryDao;
+import vn.buoi2.models.Category;
 
 public class CategoryDaoImpl extends DBConnect implements CategoryDao {
 
@@ -18,7 +18,7 @@ public class CategoryDaoImpl extends DBConnect implements CategoryDao {
 		try {
 			Connection con = super.getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, category.name());
+			ps.setString(1, category.getCatename());
 			ps.setString(2, category.getIcon());
 			ps.executeUpdate();
 		} catch (Exception e) {
@@ -32,9 +32,9 @@ public class CategoryDaoImpl extends DBConnect implements CategoryDao {
 		try {
 			Connection con = super.getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, category.getName());
+			ps.setString(1, category.getCatename());
 			ps.setString(2, category.getIcon());
-			ps.setInt(3, category.getId());
+			ps.setInt(3, category.getCateid());
 			ps.executeUpdate();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -58,8 +58,8 @@ public class CategoryDaoImpl extends DBConnect implements CategoryDao {
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				Category category = new Category();
-				category.setId(rs.getInt("cate_id"));
-				category.setName(rs.getString("cate_name"));
+				category.setCateid(id);
+				category.setCatename(sql);
 				category.setIcon(rs.getString("icons"));
 				return category;
 			}
@@ -85,8 +85,8 @@ public class CategoryDaoImpl extends DBConnect implements CategoryDao {
 		 ResultSet rs = ps.executeQuery();
 		 while (rs.next()) {
 		 Category category = new Category();
-		 category.setId(rs.getInt("cate_id"));
-		 category.setName(rs.getString("cate_name"));
+		 category.setCateid(0);
+		 category.setCatename(sql);
 		 category.setIcon(rs.getString("icons"));
 		 categories.add(category);
 		 }} catch (Exception e) {

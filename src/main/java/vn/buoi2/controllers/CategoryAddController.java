@@ -3,7 +3,6 @@ package vn.buoi2.controllers;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.Locale.Category;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -13,6 +12,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
+import vn.buoi2.models.Category;
 import vn.buoi2.services.CategoryService;
 import vn.buoi2.services.impl.CategoryServiceImpl;
 
@@ -40,8 +40,7 @@ public class CategoryAddController extends HttpServlet {
         	Category category = new Category();
             String categoryname = req.getParameter("categoryname");
             int status = Integer.parseInt(req.getParameter("status"));
-            category.setCategoryname(categoryname);
-            category.setStatus(status);
+            category.setCatename(categoryname);
             String fname = "";
             String uploadPath = UPLOAD_DIRECTORY;
             File uploadDir = new File(uploadPath);
@@ -56,9 +55,9 @@ public class CategoryAddController extends HttpServlet {
                     String ext = filename.substring(index + 1);
                     fname = System.currentTimeMillis() + "." + ext;
                     part.write(uploadPath + "/" + fname);
-                    category.setImages(fname);
+                    category.setIcon(fname);
                 } else {
-                    category.setImages("hinh.png");
+                    category.setIcon("hinh.png");
                 }
             } catch (Exception e) {
                 e.printStackTrace();

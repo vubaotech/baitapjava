@@ -33,7 +33,7 @@ public class RegisterController extends HttpServlet {
 				}
 			}
 		}
-		req.getRequestDispatcher("/views/login.jsp").forward(req, resp);
+		req.getRequestDispatcher("/views/register.jsp").forward(req, resp);
 	}
 
 	@SuppressWarnings("static-access")
@@ -60,7 +60,7 @@ public class RegisterController extends HttpServlet {
 			req.getRequestDispatcher("/views/login.jsp").forward(req, resp);
 			return;
 		}
-
+		
 		boolean isSuccess = service.register(username, password, email, fullname, phone);
 		if (isSuccess) {
 			req.setAttribute("alert", alertMsg);

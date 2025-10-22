@@ -57,5 +57,4 @@ public class CategoryServiceImpl implements CategoryService {
 	public List<Category> search(String catename) {
 		 return categoryDao.search(catename);
 	}
-
 }

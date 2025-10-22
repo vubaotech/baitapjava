@@ -1,9 +1,9 @@
 package vn.buoi2.controllers;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Locale.Category;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
+import vn.buoi2.models.Category;
 import vn.buoi2.services.CategoryService;
 import vn.buoi2.services.impl.CategoryServiceImpl;
 
@@ -57,11 +58,10 @@ public class CategoryEditController extends HttpServlet {
             String categoryname = req.getParameter("categoryname");
             int status = Integer.parseInt(req.getParameter("status"));
             Category category = new Category();
-            category.setCategoryid(categoryid);
-            category.setCategoryname(categoryname);
-            category.setStatus(status);
+            category.setCateid(categoryid);
+            category.setCatename(categoryname);
             Category cateOld = cateService.findById(categoryid);
-            String fileold = cateOld.getImages();
+            String fileold = cateOld.getIcon();
             String images = "";
             String uploadPath = UPLOAD_DIRECTORY;
             File uploadDir = new File(uploadPath);
